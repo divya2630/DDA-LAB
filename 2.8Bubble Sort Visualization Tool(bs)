@@ -1,0 +1,36 @@
+def bubble_sort_with_frames(arr):
+    a = arr.copy()
+    n = len(a)
+
+    # Store the initial array
+    frames = [a.copy()]
+
+    for i in range(n - 1):
+        swapped = False
+
+        for j in range(n - i - 1):
+            if a[j] > a[j + 1]:
+                a[j], a[j + 1] = a[j + 1], a[j]
+                swapped = True
+
+        # Store array after each pass
+        frames.append(a.copy())
+
+        if not swapped:
+            break
+
+    return frames
+
+
+# Test Cases
+frames = bubble_sort_with_frames([5, 1, 4, 2, 8])
+
+assert frames[-1] == sorted([5, 1, 4, 2, 8])
+assert frames[0] == [5, 1, 4, 2, 8]
+assert len(frames) >= 2
+
+print("Frames:")
+for i, frame in enumerate(frames):
+    print(f"Pass {i}: {frame}")
+
+print("All test cases passed!")
