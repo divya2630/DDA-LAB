@@ -1,0 +1,34 @@
+def bubble_sort_queue(queue):
+    priority = {
+        "ambulance": 1,
+        "bus": 2,
+        "car": 3
+    }
+
+    q = queue.copy()
+    n = len(q)
+
+    for i in range(n - 1):
+        swapped = False
+
+        for j in range(n - i - 1):
+            if priority[q[j]] > priority[q[j + 1]]:
+                q[j], q[j + 1] = q[j + 1], q[j]
+                swapped = True
+
+        if not swapped:
+            break
+
+    return q
+
+
+# Test Cases
+queue = ['car', 'car', 'bus']
+queue.append('ambulance')
+
+result = bubble_sort_queue(queue)
+assert result == ['ambulance', 'bus', 'car', 'car']
+
+assert bubble_sort_queue(['ambulance']) == ['ambulance']
+
+print("All test cases passed!")
