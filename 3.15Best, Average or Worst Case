@@ -1,0 +1,27 @@
+text = "AAAAAAAAAB"
+pattern = "AAAAB"
+
+n = len(text)
+m = len(pattern)
+
+comparisons = 0
+found = False
+
+for i in range(n - m + 1):
+    for j in range(m):
+
+        comparisons += 1
+
+        if text[i + j] != pattern[j]:
+            break
+
+        if j == m - 1:
+            found = True
+            print("Pattern found at position", i)
+
+print("Number of comparisons =", comparisons)
+
+if comparisons == m:
+    print("Case: Best Case")
+else:
+    print("Case: Worst/Average Case")
