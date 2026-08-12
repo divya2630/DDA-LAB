@@ -1,0 +1,30 @@
+text = "COMPUTERSCIENCE"
+pattern = "SCI"
+
+n = len(text)
+m = len(pattern)
+
+comparisons = 0
+found = False
+
+for i in range(n - m + 1):
+
+    for j in range(m):
+
+        comparisons += 1
+
+        if text[i + j] != pattern[j]:
+            break
+
+        if j == m - 1:
+            print("First occurrence position =", i)
+            print("Number of comparisons =", comparisons)
+            found = True
+            break
+
+    if found:
+        break
+
+if not found:
+    print("Pattern not found")
+    print("Number of comparisons =", comparisons)
