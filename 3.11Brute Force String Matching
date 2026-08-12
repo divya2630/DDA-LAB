@@ -1,0 +1,25 @@
+text = "AABAACAADAABAABA"
+pattern = "AABA"
+
+n = len(text)
+m = len(pattern)
+
+positions = []
+comparisons = 0
+
+for i in range(n - m + 1):
+    j = 0
+
+    while j < m:
+        comparisons += 1
+
+        if text[i + j] == pattern[j]:
+            j += 1
+        else:
+            break
+
+    if j == m:
+        positions.append(i)
+
+print("Pattern occurs at positions:", positions)
+print("Total number of comparisons =", comparisons)
