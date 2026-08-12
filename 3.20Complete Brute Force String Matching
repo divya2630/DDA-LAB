@@ -1,0 +1,35 @@
+text = "TTATAGATCTCGTATTCTTTATAGATCTCCTATTCTT"
+pattern = "TATCTT"
+
+n = len(text)
+m = len(pattern)
+
+positions = []
+total_comparisons = 0
+
+print("Shifting Process")
+print("----------------")
+
+for i in range(n - m + 1):
+
+    comparisons = 0
+    match = True
+
+    print("Shift", i, end=": ")
+
+    for j in range(m):
+
+        total_comparisons += 1
+        comparisons += 1
+
+        if text[i + j] != pattern[j]:
+            print("Mismatch")
+            match = False
+            break
+
+    if match:
+        positions.append(i)
+        print("Match")
+
+print("\nPattern occurrences:", positions)
+print("Total comparisons =", total_comparisons)
