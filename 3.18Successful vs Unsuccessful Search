@@ -1,0 +1,32 @@
+text = "PROGRAMMINGLAB"
+
+patterns = ["LAB", "TEST"]
+
+for pattern in patterns:
+
+    comparisons = 0
+    found = False
+
+    for i in range(len(text) - len(pattern) + 1):
+
+        for j in range(len(pattern)):
+
+            comparisons += 1
+
+            if text[i + j] != pattern[j]:
+                break
+
+            if j == len(pattern) - 1:
+                found = True
+
+        if found:
+            break
+
+    print("\nPattern:", pattern)
+
+    if found:
+        print("Search: Successful")
+    else:
+        print("Search: Unsuccessful")
+
+    print("Comparison count =", comparisons)
