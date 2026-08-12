@@ -1,0 +1,27 @@
+def insert_updated_score(board, score):
+    board = board.copy()
+
+    i = len(board) - 1
+
+    # Find position from the end
+    while i >= 0 and board[i] < score:
+        i -= 1
+
+    # Shift elements to the right
+    position = i + 1
+    board.insert(position, score)
+
+    shifts = len(board) - position - 1
+
+    return board, shifts
+
+
+board = [980, 875, 760, 690, 500]
+
+updated_board, shifts = insert_updated_score(board, 820)
+assert updated_board == [980, 875, 820, 760, 690, 500]
+
+board2, shifts2 = insert_updated_score(board, 100)
+assert board2[-1] == 100 and shifts2 == 0
+
+print("All test cases passed!")
