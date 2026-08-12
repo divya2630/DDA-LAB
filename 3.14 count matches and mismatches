@@ -1,0 +1,24 @@
+text = "ABABABABAB"
+pattern = "ABAB"
+
+n = len(text)
+m = len(pattern)
+
+comparisons = 0
+matches = 0
+mismatches = 0
+
+for i in range(n - m + 1):
+    for j in range(m):
+
+        comparisons += 1
+
+        if text[i + j] == pattern[j]:
+            matches += 1
+        else:
+            mismatches += 1
+            break
+
+print("Total character comparisons =", comparisons)
+print("Total matches =", matches)
+print("Total mismatches =", mismatches)
