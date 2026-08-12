@@ -1,0 +1,29 @@
+arr = [14, 9, 22, 35, 18, 41, 27]
+key = 18
+
+n = len(arr)
+
+# Save last element
+last = arr[n - 1]
+
+# Place key as sentinel
+arr[n - 1] = key
+
+i = 0
+comparisons = 0
+
+while arr[i] != key:
+    comparisons += 1
+    i += 1
+
+comparisons += 1
+
+# Restore last element
+arr[n - 1] = last
+
+if i < n - 1 or last == key:
+    print("Position found =", i + 1)
+else:
+    print("Element not found")
+
+print("Comparison count =", comparisons)
